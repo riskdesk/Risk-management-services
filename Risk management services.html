@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Casino Risk Management &amp; Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--bg:#0B0F19;--cy:#00F0FF;--gr:#10B981;--am:#06acb8;--tx:#E6ECF5;--mu:#8A97AD;--line:rgba(255,255,255,.09);--hd:"Outfit","Trebuchet MS",sans-serif;--bd:"Inter","Segoe UI",sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.65 var(--bd);overflow-x:hidden;scrollbar-width:none;background-image:radial-gradient(900px 500px at 85% -10%,rgba(0,240,255,.10),transparent 60%),radial-gradient(700px 500px at -10% 40%,rgba(16,185,129,.07),transparent 60%)}
+body::-webkit-scrollbar{display:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:var(--hd);margin:0;letter-spacing:-.02em;line-height:1.08}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:8px}
+.mu{color:var(--mu)}
+
+/* top bar */
+#top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;background:rgba(11,15,25,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+#top .r{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font:700 17px var(--hd);white-space:nowrap}
+.brand svg{width:22px;height:22px;color:var(--cy)}
+#nav{display:flex;gap:4px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+#nav button{background:none;border:0;padding:7px 14px;border-radius:999px;color:var(--mu);font-size:14px;font-weight:500;white-space:nowrap;transition:color .25s,background .25s}
+#nav button:hover{color:var(--tx)}
+#nav button.on{color:var(--bg);background:var(--cy)}
+.btn{border:1px solid var(--cy);background:rgba(0,240,255,.1);color:var(--cy);padding:8px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:background .25s,box-shadow .25s,transform .25s}
+.btn:hover{background:var(--cy);color:var(--bg);box-shadow:0 0 30px -4px var(--cy);transform:translateY(-2px)}
+.btn.g{border-color:var(--line);background:none;color:var(--tx)}
+.btn.g:hover{background:rgba(255,255,255,.08);color:var(--tx);box-shadow:none}
+@media(max-width:900px){#top .r{gap:10px;padding:10px 14px}#nav{order:3;width:100%;margin:0}.brand{margin-right:auto}}
+
+/* slides */
+.slide{padding:76px 24px}
+.in{max-width:1160px;margin:0 auto}
+.chap{padding:110px 24px 0}
+.chap .in{max-width:1160px;margin:0 auto}
+.chap h2{font-size:clamp(34px,5.5vw,64px);margin-top:8px;max-width:20ch;background:linear-gradient(90deg,#fff,#9FB3D1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+.sh h2{font-size:clamp(26px,3.8vw,42px)}
+.g{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:620px){.g2,.g4{grid-template-columns:1fr}.slide{padding:56px 16px}}
+
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:24px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),var(--cy),transparent 62%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-5px)}.card:hover::before{opacity:1}
+.card h3{font-size:20px;margin:14px 0 8px}
+.card p{color:var(--mu);font-size:15px}
+.ico{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(0,240,255,.1);color:var(--cy);border:1px solid rgba(0,240,255,.25)}
+.ico svg{width:22px;height:22px}
+.card.am .ico{background:rgba(6,172,184,.1);color:var(--am);border-color:rgba(6,172,184,.3)}
+.card.gr .ico{background:rgba(16,185,129,.1);color:var(--gr);border-color:rgba(16,185,129,.3)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;transition-delay:calc(var(--k,0)*70ms)}
+.rv.v{opacity:1;transform:none}
+.rv.card.v:hover{transition-delay:0s;transform:translateY(-5px)}
+.note{margin-top:16px;margin-bottom:16px;display:flex;gap:12px;align-items:center;padding:16px 20px;border-radius:16px;border:1px solid rgba(6,172,184,.35);background:rgba(6,172,184,.07);color:#A5F3FC}
+.note.gr{border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.07);color:#A7F0CF}
+.note svg{width:24px;height:24px;flex:none}
+
+/* tabs & fixed height wrappers to prevent layout jump */
+.tb{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;margin-bottom:14px;background:rgba(255,255,255,.03)}
+.tb button{border:0;background:none;color:var(--mu);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:500;transition:.25s}
+.tb button.on{background:var(--cy);color:var(--bg)}
+.tabs {display: flex; flex-direction: column;}
+.tp-container {position: relative; min-height: 220px;}
+.tp{display:none; position: absolute; inset: 0; width: 100%;}.tp.on{display:block; animation:fd .45s both; position: relative;}
+.tp h3{margin-top:0}.tp p{font-size:17px;color:var(--tx);opacity:.88}
+@keyframes fd{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* flow */
+.flow{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+.flow .st{flex:1 1 150px;position:relative;padding:16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:14px;font-weight:500;cursor:pointer;transition:transform .25s,border-color .25s,background .25s;text-align:left;}
+.flow .st:hover{transform:translateY(-3px);border-color:var(--cy);background:rgba(0,240,255,.08)}
+.flow .st:active{transform:scale(.97)}
+.flow .st:not(:last-child)::after{content:"›";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--cy);font-size:22px;z-index:1}
+.flow .st:last-child{border-color:rgba(6,172,184,.5);background:rgba(6,172,184,.08);color:#A5F3FC}
+.flow .st:last-child:hover{border-color:var(--am);background:rgba(6,172,184,.18)}
+.flow .st b{display:block;color:var(--cy);font-family:var(--hd);margin-bottom:4px}
+.flow .st:last-child b{color:var(--am)}
+@media(max-width:620px){.flow .st:not(:last-child)::after{display:none}}
+
+/* triggers */
+.trg{text-align:left;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:18px;padding:20px;transition:.3s;position:relative;display:block;width:100%}
+.trg:hover{border-color:rgba(0,240,255,.5);transform:translateY(-4px)}
+.trg h3{font-size:18px;margin:12px 0 6px}.trg p{color:var(--mu);font-size:14px}
+.trg.fire{border-color:var(--am);background:rgba(6,172,184,.1);animation:fire .8s 2}
+@keyframes fire{0%,100%{box-shadow:0 0 0 0 rgba(6,172,184,.6)}50%{box-shadow:0 0 36px 4px rgba(6,172,184,.5)}}
+#toasts{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);z-index:70;display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
+.toast{display:flex;gap:10px;align-items:center;width:310px;max-width:90vw;padding:12px 16px;border-radius:14px;background:#1A1409;border:1px solid var(--am);color:#A5F3FC;font-size:13.5px;box-shadow:0 0 30px -6px var(--am);animation:fd .4s both;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:auto}
+.toast i{width:8px;height:8px;border-radius:50%;background:var(--am);flex:none}
+
+/* case */
+.big{font:800 clamp(32px,5vw,54px)/1.1 var(--hd);color:var(--am);text-shadow:0 0 40px rgba(6,172,184,.4);white-space:nowrap;}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;position:relative}
+.tl .e{position:relative;padding-top:26px;font-size:14px;color:var(--mu)}
+.tl .e::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--cy);box-shadow:0 0 14px var(--cy)}
+.tl .e::after{content:"";position:absolute;left:14px;right:-14px;top:11px;height:2px;background:linear-gradient(90deg,var(--cy),transparent)}
+.tl .e:last-child::before{background:var(--cy);box-shadow:0 0 14px var(--cy)}
+.tl b{display:block;color:var(--tx);font-family:var(--hd);font-size:16px}
+@media(max-width:700px){.tl{grid-template-columns:1fr}.tl .e::after{display:none}}
+.cs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px;align-items:stretch}
+.cs > *{display:flex;flex-direction:column}
+.cs .card.am{justify-content:center}
+.cs .tabs{flex:1}
+.cs .tp-container{position:relative;flex:1;min-height:150px}
+.cs .tp{display:none;position:absolute;inset:0;width:100%}
+.cs .tp.on{display:block;position:absolute;inset:0;animation:fd .45s both}
+@media(max-width:900px){.cs{grid-template-columns:1fr}}
+
+/* pricing */
+.tier{cursor:pointer;display:flex;flex-direction:column;text-align:left}
+.tier.sel{border-color:var(--cy);box-shadow:0 0 50px -14px var(--cy);background:linear-gradient(180deg,rgba(0,240,255,.09),rgba(255,255,255,.02))}
+.price{font:800 44px/1 var(--hd);margin:6px 0 2px}.price small{font:500 15px var(--bd);color:var(--mu)}
+.res{margin:14px 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.05);font-size:14px}
+.res b{color:var(--cy)}
+.tier ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14.5px}
+.tier li{display:flex;gap:10px;color:var(--tx);opacity:.9}
+.tier li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:rgba(16,185,129,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.3 2.3 4.7-5' fill='none' stroke='%2310B981' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/16px}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:140px}
+.hero .in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:center}
+@media(max-width:900px){.hero .in{grid-template-columns:1fr}.duel{display:none}.hero{padding-top:150px}}
+.hero h1{font-size:clamp(40px,7vw,86px);margin:22px 0 18px;background:linear-gradient(95deg,#fff 20%,var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(18px,2.2vw,24px);max-width:36ch}
+#rot{display:inline-block;color:var(--am);font-weight:600;transition:opacity .35s,transform .35s}
+#rot.o{opacity:0;transform:translateY(8px)}
+.duel{position:relative;aspect-ratio:1;width:100%;max-width:440px;margin:auto}
+.duel svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 8px rgba(0,240,255,.55))}
+.d-sword{transform-origin:104px 250px;animation:swing 3.2s cubic-bezier(.5,0,.3,1) infinite}
+.d-shield{animation:bash 3.2s ease-in-out infinite}
+.d-spark{transform-origin:254px 238px;opacity:0;animation:spark 3.2s ease-out infinite}
+.d-wave{transform-origin:254px 238px;opacity:0;animation:wave 3.2s ease-out infinite}
+.duel>svg{z-index:1;pointer-events:none}
+.emb{position:absolute;inset:-14%;z-index:0;transition:transform .5s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.duel .emb svg{filter:drop-shadow(0 0 14px rgba(0,240,255,.45));opacity:.4;transition:opacity .4s;animation:flo 8s ease-in-out infinite,glw 4s ease-in-out infinite}
+.emb.hot svg{opacity:.7}.emb.pulse svg{opacity:.95}
+.emb .ln{stroke-dasharray:1 1;animation:drw 7s ease-in-out infinite}
+.emb .ln:nth-child(2){animation-delay:.35s}.emb .ln:nth-child(3){animation-delay:.7s}
+.emb .orb{transform-origin:627px 613px;animation:spin 40s linear infinite}
+.emb .rp{position:absolute;width:20px;height:20px;margin:-10px;border:2px solid #00F0FF;border-radius:50%;opacity:.8;pointer-events:none;animation:rpl .9s ease-out forwards}
+@keyframes drw{0%{stroke-dashoffset:1;opacity:1}35%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes flo{50%{transform:translateY(-10px)}}
+@keyframes glw{50%{filter:drop-shadow(0 0 26px rgba(0,240,255,.75))}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rpl{to{transform:scale(14);opacity:0}}
+@media(prefers-reduced-motion:reduce){.emb .ln{animation:none}}
+@keyframes swing{0%,100%{transform:translateX(0) rotate(-26deg)}30%{transform:translateX(0) rotate(-38deg)}44%,52%{transform:translateX(0) rotate(-3deg)}64%{transform:translateX(-6px) rotate(-12deg)}82%{transform:translateX(0) rotate(-24deg)}}
+@keyframes bash{0%,36%,64%,100%{transform:translateX(0) rotate(0deg)}44%{transform:translateX(-8px) rotate(-2deg)}49%{transform:translateX(6px) rotate(2deg)}57%{transform:translateX(-3px) rotate(0deg)}}
+@keyframes spark{0%,43%{opacity:0;transform:scale(.2)}48%{opacity:1;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.7)}}
+@keyframes wave{0%,44%{opacity:0;transform:scale(.3)}48%{opacity:.9;transform:scale(.6)}72%,100%{opacity:0;transform:scale(5)}}
+.spot{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(420px circle at var(--px,70%) var(--py,20%),rgba(0,240,255,.07),transparent 70%)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+
+/* right rail: fixed section navigator */
+#rail{display:none}
+@media(min-width:1280px){
+#nav{display:none}
+#main{padding-right:250px}
+#rail{display:block;position:fixed;right:0;top:50%;transform:translateY(-50%);width:250px;padding:0 38px 0 8px;text-align:right;z-index:40;pointer-events:none}
+}
+#rail button{pointer-events:auto}
+#rail .rb{position:relative;height:340px;display:flex;flex-direction:column;justify-content:center}
+#rail .rb::before,#rail .rb::after{content:"";position:absolute;right:-26px;top:0;width:2px;border-radius:2px}
+#rail .rb::before{bottom:0;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.12) 12%,rgba(255,255,255,.12) 88%,transparent)}
+#rail .rb::after{height:calc(100% * var(--p,0));background:linear-gradient(to bottom,transparent,var(--cy));box-shadow:0 0 12px var(--cy);transition:height .12s linear}
+#rail .ri{animation-delay:calc(var(--i,0)*70ms)}
+#rail .rb.out .ri{opacity:0;transform:translate3d(-12px,calc(var(--dy,18px)*-1),0);transition:opacity .22s,transform .22s}
+#rail .rt{display:block;width:100%;margin:0 0 14px;padding:0;border:0;cursor:pointer;text-align:right;text-wrap:balance;font:700 25px/1.15 var(--hd);letter-spacing:-.02em;
+ background:linear-gradient(90deg,#fff 0%,#00F0FF 30%,#8CF8FF 50%,#00F0FF 70%,#fff 100%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 0 12px rgba(0,240,255,.25));animation:rl-in .75s cubic-bezier(.2,.8,.2,1) backwards,rl-sh 7s linear infinite}
+#rail .rs{display:block;width:100%;max-width:190px;margin-left:auto;padding:7px 0;border:0;background:none;cursor:pointer;text-align:right;text-wrap:balance;font:500 13.5px/1.4 var(--bd);color:var(--mu);
+ transition:color .25s,transform .4s cubic-bezier(.2,.8,.2,1);animation:rl-in .7s cubic-bezier(.2,.8,.2,1) backwards,rl-gl 3.2s ease-in-out infinite}
+#rail .rs:hover{color:var(--tx);transform:translateX(-6px)}
+#rail .rs.on{--g:1;color:var(--cy);transform:translateX(-12px)}
+#rail .rk{position:absolute;right:38px;bottom:0;display:flex;gap:6px}
+#rail .rk button{position:relative;width:18px;height:16px;padding:0;border:0;background:none;cursor:pointer}
+#rail .rk button::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;border-radius:2px;background:rgba(255,255,255,.2);transition:background-color .35s,box-shadow .35s}
+#rail .rk button:hover::before{background:rgba(255,255,255,.7)}
+#rail .rk button.on::before{background:var(--cy);box-shadow:0 0 8px rgba(0,240,255,.6)}
+#rail .rk button::after{content:attr(data-t);position:absolute;right:0;bottom:16px;font:600 11px var(--bd);letter-spacing:.04em;color:var(--cy);white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;pointer-events:none}
+#rail .rk button:hover::after{opacity:1;transform:none}
+@media(min-width:1280px){#rail{top:50%;margin-top:-191px;transform:none;padding-bottom:42px}}
+@media(min-width:1280px){#top .r{box-sizing:border-box;width:calc(100% - 250px);max-width:1208px;margin:0 0 0 max(0px,calc((100% - 250px - 1208px)/2))}}
+@keyframes rl-in{from{opacity:0;transform:translate3d(18px,var(--dy,18px),0);filter:blur(6px)}}
+@keyframes rl-sh{to{background-position:250% 0}}
+@keyframes rl-gl{0%,100%{text-shadow:0 0 10px rgba(0,240,255,calc(var(--g,0)*.35))}50%{text-shadow:0 0 18px rgba(0,240,255,calc(var(--g,0)*.8))}}
+</style>
+</head>
+<body>
+<div class="spot" id="spot"></div>
+
+<header id="top"><div class="r">
+  <div class="brand"><svg viewBox="330 250 596 730" style="width:28px;height:28px;filter:drop-shadow(0 0 5px rgba(0,240,255,.55))"><defs><linearGradient id="lg" gradientUnits="userSpaceOnUse" x1="348" y1="272" x2="906" y2="955"><stop offset="0" stop-color="#00F0FF"/><stop offset="1" stop-color="#06acb8"/></linearGradient></defs><g fill="none" stroke="url(#lg)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"><path d="M628 925C500 868 378 788 373 650V402L627 298L881 402V650C875 760 815 835 733 887"/><path d="M492 493H668A91 91 0 0 1 668 675H577"/><path d="M577 675L731 890"/></g></svg>Casino Risk Management</div>
+  <nav id="nav" aria-label="Chapters"></nav>
+</div></header>
+
+<aside id="rail" aria-label="Section navigator"><div class="rb"></div><div class="rk"></div></aside>
+<main id="main">
+<section class="slide hero" data-ch="0"><div class="in">
+  <div>
+    <h1>Casino Risk Management &amp; Services</h1>
+    <p class="sub">We safeguard platform profitability against <span id="rot">fraud</span></p>
+    <p class="mu" style="margin-top:14px;max-width:52ch">Our primary line of defense for partners is 24/7 automated monitoring combined with rapid hands-on support.</p>
+  </div>
+  <div class="duel" aria-hidden="true"><div class="emb"><svg viewBox="330 250 596 730"><defs><linearGradient id="eg" gradientUnits="userSpaceOnUse" x1="348" y1="272" x2="906" y2="955"><stop offset="0" stop-color="#00F0FF"/><stop offset="1" stop-color="#06acb8"/></linearGradient></defs><g fill="none" stroke="url(#eg)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"><path class="ln" pathLength="1" d="M628 925C500 868 378 788 373 650V402L627 298L881 402V650C875 760 815 835 733 887L731 890L577 675H668A91 91 0 0 0 668 493H492"/></g></svg></div><svg viewBox="68 93 286 286"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00F0FF" stop-opacity=".38"/><stop offset="1" stop-color="#06acb8" stop-opacity=".08"/></linearGradient></defs>
+    <g class="d-shield"><g transform="translate(312 225)"><path d="M0-74L62-50V8C62 56 30 84 0 98C-30 84-62 56-62 8V-50Z" fill="url(#dg)" stroke="#00F0FF" stroke-width="2.5" stroke-linejoin="round"/><path d="M0-56L48-38V8C48 44 24 66 0 78C-24 66-48 44-48 8V-38Z" fill="none" stroke="#00F0FF" stroke-opacity=".45" stroke-width="1.5"/><path d="M-20 4L-6 18L22-14" fill="none" stroke="#00F0FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+    <g class="d-sword"><g transform="translate(104 250)"><path d="M30-9L128-6L150 0L128 6L30 9Z" fill="url(#dg)" stroke="#00F0FF" stroke-width="2" stroke-linejoin="round"/><path d="M34 0H132" stroke="#00F0FF" stroke-opacity=".5" stroke-width="1.5"/><rect x="22" y="-26" width="10" height="52" rx="4" fill="#00F0FF" fill-opacity=".25" stroke="#00F0FF" stroke-width="2"/><rect x="-34" y="-5" width="56" height="10" rx="4" fill="#06acb8" fill-opacity=".35" stroke="#00F0FF" stroke-width="1.6"/><circle cx="-42" cy="0" r="8" fill="#00F0FF" fill-opacity=".25" stroke="#00F0FF" stroke-width="2"/></g></g>
+    <circle class="d-wave" cx="254" cy="238" r="12" fill="none" stroke="#00F0FF" stroke-width="2"/>
+    <g class="d-spark"><g transform="translate(254 238)" stroke="#00F0FF" stroke-width="3" stroke-linecap="round" fill="none"><path d="M0-14V-30M0 14V30M-14 0H-30M14 0H30M10-10L22-22M-10-10L-22-22M10 10L22 22M-10 10L-22 22"/></g></g>
+  </svg></div>
+</div></section>
+</main>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const IC={shield:"M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z",eye:"M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 9a3 3 0 100 6 3 3 0 000-6z",chart:"M4 20V10M10 20V4M16 20v-7M22 20H2",alert:"M12 3l10 18H2zM12 10v5M12 18v.5",bolt:"M13 2L4 14h7l-1 8 9-12h-7z",users:"M12 4a4 4 0 100 8 4 4 0 000-8zM4 20c0-4 4-6 8-6s8 2 8 6",doc:"M6 2h9l5 5v15H6zM14 2v6h6M9 13h7M9 17h7",lock:"M6 11h12v10H6zM8 11V7a4 4 0 018 0v4",target:"M12 3a9 9 0 100 18 9 9 0 000-18zM12 8a4 4 0 100 8 4 4 0 000-8z",swap:"M4 8h14l-4-4M20 16H6l4 4",cpu:"M7 7h10v10H7zM9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4",coin:"M12 3a9 9 0 100 18 9 9 0 000-18zM9.5 10c0-2.4 5-2.4 5 0s-5 1.2-5 3.6 5 2.4 5 0",star:"M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z",flag:"M5 21V4M5 4h12l-2 4 2 4H5"};
+const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${IC[n]}"/></svg>`;
+const card=(i,t,d,x='')=>`<article class="card rv ${x}"><span class="ico">${ic(i)}</span><h3>${t}</h3><p>${d}</p></article>`;
+const grid=(n,a)=>`<div class="g g${n}">${a.map(x=>card(...x)).join('')}</div>`;
+const tabs=a=>`<div class="tabs rv"><div class="tb" role="tablist">${a.map((x,i)=>`<button role="tab" class="${i?'':'on'}" aria-selected="${!i}">${x[0]}</button>`).join('')}</div><div class="tp-container">${a.map((x,i)=>`<div class="tp card ${i?'':'on'}" role="tabpanel"><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}</div></div>`;
+
+const CH=['What We Do & How We Protect Our Partners','Common Fraud Risks & Cases','Our Analytics Tools & Automated Triggers','Real-World Case Examples','Commercial Service Packages & Sales Value'];
+const NAV=['What We Do','Fraud Risks','Analytics','Case Studies','Packages'];
+const TRG=[['Consecutive Wins Trigger','Flags accounts achieving unusually long, uninterrupted winning streaks on a specific game or provider.','target'],['High Win / Multiplier Alert','Fires immediately when single-spin multipliers or overall player wins exceed safe thresholds.','bolt'],['First-Time Large Bet Alert','Notifies analysts when a brand-new or low-activity player suddenly places maximum-limit stakes.','users'],['Opposite Betting Alert','Real-time tracking of complementary bets designed to bypass gameplay risk.','swap'],['Manual Balance Change Alert','Instant notification whenever a player account balance is manually edited on the platform.','alert'],['Jackpot Win Verification','Automatic flag on local or network jackpot hits so we can verify round legitimacy before payout.','star']];
+const TIER=[['Essential Integrity','5,651','2,000','2-3 Specialists','Shared Support',['Basic 24/7 real-time monitoring & behavior tracking','Standard suspicious request investigations','Opposite betting reviews & basic event reports']],['Strategic Shield','11,585','4,500','4-5 Specialists','Shared Support',['Proactive opposite betting detection','Bonus abuse & exploit analysis','In-depth BI data reviews','Full custom risk tools access','Technical fraud & bug detection']],['Advanced Assurance','14,102','6,000','4-5 Specialists + 1 Lead','Dedicated Team',['Full dedicated risk team','Fast-tracked priority case handling','Withdrawal legitimacy checks','Monthly executive consultation & custom risk reporting']]];
+
+const S=[
+{c:1,n:'Mission & Operating Philosophy',h:grid(3,[['shield','Protecting GGR & Operations','We serve as the primary line of defense for our partners, safeguarding platform profitability against fraud, possible technical glitches and bonus exploits.'],['bolt','Proactive Monitoring and Fast Reaction','We combine 24/7 automated background monitoring with rapid hands-on support for partner inquiries via Jira.'],['lock','Strict Governance & Transparency','If necessary, we restrict risky accounts or games to prevent loss, but we never alter player balances or touch partner funds directly.','gr']])},
+{c:1,n:'Core Responsibilities',h:grid(4,[['eye','24/7 Live Monitoring','Continuous tracking of turnover, stakes, wins, and overall GGR across all game providers and player accounts.'],['chart','Smart Data Audits','Regular evaluation of custom reports, including Suspicious Games, Suspicious Transactions and AI Anomaly logs.'],['target','Environment & Limit Control','Managing turnover limits during testing (Pre-live) and safely transitioning partners into production with custom risk limits.'],['doc','Pre-Launch Risk Advisory','Evaluating upcoming promotional campaigns, bonus structures, and game categories before they go live to prevent vulnerability exposure.']])},
+{c:1,n:'AM Workflow',h:`<div class="note rv">${ic('users')}<div><b>AM Owns Partner Relations:</b> All partner communications, updates, and clarifications go exclusively through the Account Manager. We back you up with data behind the scenes.</div></div>`+tabs([['Step 1','Account Manager Escalation','When a partner spots unusual player activity or needs a limit change, the AM opens a ticket directly in Jira.'],['Step 2','Investigation & Clarification','Our team analyzes the data. If we notice unusual activity, like unexpected manual balance top-ups, we reach out to the AM for background context.'],['Step 3','Immediate Risk Containment','In urgent high-risk situations, we apply temporary restrictions on suspect accounts and notify the AM immediately to handle partner communication.']])},
+{c:1,n:'How We Handle Technical & System Incidents',h:grid(3,[['alert','Isolating Game & Provider Faults','If a game or provider acts up, we notify Relum: Casino Response right away to temporarily disable the game.','am'],['lock','Freezing At-Risk Accounts','We temporarily restrict access for player accounts profiting from the glitch to stop financial leakage if the partner is not API.','am'],['users','Notifying API Partners','For API-integrated operators, we alert the AM and Partner Service so the operator can apply local account blocks.','am']])},
+{c:2,n:'Financial Fraud & Anti-Money Laundering (AML)',h:grid(3,[['swap','Opposite Betting Schemes','Placing opposing bets at the same time (e.g., Red/Black in Roulette or Player/Banker in Baccarat) to recycle funds with near-zero risk.','am'],['alert','Manual Balance Adjustments','Catching unexpected or unauthorized manual balance increases added directly on partner platforms.','am'],['coin','Rapid High-Volume Cashouts','Detecting immediate withdrawal requests right after minimal play on high-RTP games to launder unverified deposits.','am']])},
+{c:2,n:'Bonus Abuse & Promotion Fraud',h:grid(3,[['star','Cumulative Feature Abuse','Using bonus money to build up progress bars in slot features at low stakes, cancelling the bonus right before completion, and re-triggering the feature with real money at maximum stakes.','am'],['users','Multi-Accounting & Arbitrage','Coordinated groups using multiple accounts to hedge bonus funds across complementary outcomes for risk-free profit.','am'],['chart','Low-Volatility Wagering','Playing ultra-safe strategies with low coefficient markets specifically to clear wagering requirements fraudulently.','am']])},
+{c:2,n:'Technical Vulnerabilities & Bugs',h:grid(3,[['cpu','Wrong Build Deployments','Exploiting math bugs or broken payout tables in unreleased or test game versions loaded by mistake.','am'],['flag','Cancelled Bet Manipulation','Abusing network lag to cancel a bet after the round outcome is known, securing risk-free wins.','am'],['bolt','Bot Exploits & Impossible Streaks','Automated tools taking advantage of micro-delays in game rounds to trigger statistically impossible win streaks.','am']])},
+{c:3,n:'Our Analytics & Reporting Suite',h:grid(4,[['chart','24/7 Operations Dashboards','Real-time visibility into operator turnover, total stakes, payout ratios, and overall GGR trends.'],['eye','Suspicious Gaming Report','Automated alerts for players’ gaming behavior showing sudden, uncharacteristic spikes above expected average baselines.'],['coin','Suspicious Transactions Report','Smart tracking that highlights big transactions and manual balance changes.'],['cpu','AI-Powered Anomaly Models','Machine learning models that analyze historical player behavior to catch organized syndicate activity and irregular patterns early.','gr']])},
+{c:3,n:'Real-Time Risk Triggers & Alerts',h:`<div style="display:flex;gap:12px;align-items:center;margin:-10px 0 18px;flex-wrap:wrap" class="rv"><button class="btn" id="sim">Simulate live alerts</button></div><div class="g g3">${TRG.map(x=>`<button class="trg rv" data-n="${x[0]}"><span class="ico">${ic(x[2])}</span><h3>${x[0]}</h3><p>${x[1]}</p></button>`).join('')}</div>`},
+{c:4,n:'Case 1: Observation',h:`<div class="cs"><article class="card rv am"><span class="ico">${ic('alert')}</span><h3>Financial Exposure</h3><div class="big">€185,600</div></article><div>${tabs([['Discovery','The Discovery','On July 4, 2026, we flagged abnormal winning activity on ‘Queen Amber High RTP’ (EGT Digital) game via GrandPashaBet.'],['Containment','Testing & Containment','Our risk specialists ran internal observations, reproducing multiple max-wins within minutes. We immediately disabled the game across our platform to stop further loss.'],['Escalation','Escalation & Outcome','The provider initially claimed the game was working normally, but when we pushed back with empirical spin logs, on July 21 the provider confirmed an incorrect pre-release build had been loaded.']])}</div></div><div class="tl rv"><div class="e"><b>July 4, 2026</b>Abnormal winning activity flagged on ‘Queen Amber High RTP’</div><div class="e"><b>Game disabled</b>Disabled across our platform to stop further loss</div><div class="e"><b>July 21</b>Provider confirms incorrect pre-release build; correct version restored</div></div>`},
+{c:4,n:'Case 2: Prevention',h:`<div class="flow rv"><button class="st"><b>Fill</b>Wager-free bonus funds at low stakes fill the progress bar</button><button class="st"><b>Cancel</b>Bonus cancelled right before completion</button><button class="st"><b>Raise</b>Stake increased to €100</button><button class="st"><b>Payout</b>Feature triggered with real money for massive payouts</button></div><div style="height:16px"></div>${tabs([['The Exploit','The Exploit','Certain slot games collect points toward a bonus feature without resetting progress when spin values change. Players used wager-free bonus funds at low stakes to fill the progress bar, cancelled the bonus right before completion, increased the stake to €100, and triggered massive payouts with real money.'],['Industry Threat','Industry Threat','A widespread, global game logic vulnerability that compromised promotional budgets across the industry.'],['Our Solution','Proactive Solution','We developed a custom Game Risk-Scoring Tool for giving Risk Tags for specific games.'],['Result','Result','High-risk games with cumulative features are now systematically excluded from promotions, bonus campaigns, and wagering programs, closing the loop with high efficiency.']])}`},
+{c:5,n:'Summary of Our Core Services',h:grid(4,[['eye','24/7 Behavioral Surveillance','Continuous monitoring of player actions, turnover shifts, RTP anomalies, and transaction health.'],['bolt','Priority Investigations','Fast turnaround on partner-submitted tickets checking win legitimacy, bonus abuse, or player risk.'],['chart','Custom Risk Analytics Tools','Access to in-house developed dashboards fine-tuned for live risk tracking and game evaluation.'],['target','Strategic Campaign Consulting','Expert pre-launch advice on setting up safe bonus structures and promotional rules.','gr']])},
+{c:5,n:'Service Package Options',h:`<div class="g g3">${TIER.map((t,i)=>`<article class="card tier rv${i==1?' sel':''}" data-i="${i}" tabindex="0" role="button" aria-pressed="${i==1}"><h3 style="margin-top:0">${t[0]}</h3><div class="price">€${t[1]} <small>/ month</small></div><p style="font-size:13px">Base: €${t[2]} + Equip/SW</p><div class="res"><b>${t[3]}</b><br>(${t[4]})</div><ul>${t[5].map(f=>`<li>${f}</li>`).join('')}</ul></article>`).join('')}</div>`}
+];
+
+// build
+const main=$('#main'),navEl=$('#nav');
+let html='',seen={};
+S.forEach(s=>{if(!seen[s.c]){seen[s.c]=1;html+=`<div class="chap" id="ch${s.c}"><div class="in"><h2>${CH[s.c-1]}</h2></div></div>`}
+ html+=`<section class="slide" data-ch="${s.c}"><div class="in"><div class="sh rv"><h2>${s.n}</h2></div>${s.h}</div></section>`});
+main.insertAdjacentHTML('beforeend',html);
+const SL=$$('.slide');
+$$('.slide').forEach(s=>$$('.rv',s).forEach((e,k)=>e.style.setProperty('--k',Math.min(k,8))));
+navEl.innerHTML=NAV.map((n,i)=>`<button data-ch="${i+1}">${n}</button>`).join('');
+
+function setNav(ch){$$('#nav button').forEach(b=>b.classList.toggle('on',+b.dataset.ch===ch))}
+function goTo(i){const s=SL[i],p=s.previousElementSibling;(p&&p.classList.contains('chap')?p:s).scrollIntoView({behavior:'smooth',block:'start'})}
+navEl.onclick=e=>{const b=e.target.closest('button');if(!b)return;goTo(SL.findIndex(s=>+s.dataset.ch===+b.dataset.ch))};
+
+// Smooth transition animation every time (up and down)
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+        e.target.classList.add('v');
+        $$('.cnt',e.target).forEach(el=>{
+            const to=+el.dataset.to,d=+(el.dataset.dec||0),p=el.dataset.pre||'',u=el.dataset.suf||'',t0=performance.now();
+            (function f(t){const k=Math.min(1,(t-t0)/1400),e1=1-Math.pow(1-k,3);el.textContent=p+(to*e1).toFixed(d)+u;if(k<1)requestAnimationFrame(f)})(t0);
+        });
+    } else {
+        e.target.classList.remove('v');
+    }
+}),{threshold:.12});
+$$('.rv').forEach(e=>io.observe(e));
+
+// track scroll position
+const po=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setNav(+e.target.dataset.ch)}}),{rootMargin:'-45% 0px -50% 0px'});
+SL.forEach(s=>po.observe(s));
+
+// tabs, glow, pricing, alerts
+document.addEventListener('click',e=>{const b=e.target.closest('.tb button');if(!b)return;const t=b.closest('.tabs'),i=$$('.tb button',t).indexOf(b);$$('.tb button',t).forEach((x,k)=>{x.classList.toggle('on',k===i);x.setAttribute('aria-selected',k===i)});$$('.tp',t).forEach((x,k)=>x.classList.toggle('on',k===i))});
+document.addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}
+ $('#spot').style.setProperty('--px',e.clientX+'px');$('#spot').style.setProperty('--py',e.clientY+'px')});
+function pick(c){$$('.tier').forEach(x=>{x.classList.toggle('sel',x===c);x.setAttribute('aria-pressed',x===c)});0}
+$$('.tier').forEach(c=>{c.onclick=()=>pick(c);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(c)}}});
+function toast(n){const d=document.createElement('div');d.className='toast';d.innerHTML=`<i></i>Alert · ${n}`;$('#toasts').appendChild(d);setTimeout(()=>d.remove(),3200)}
+$('#sim').onclick=()=>$$('.trg').forEach((b,i)=>setTimeout(()=>{b.classList.add('fire');toast(b.dataset.n);setTimeout(()=>b.classList.remove('fire'),1700)},i*900));
+
+// hero rotating word
+const W=['fraud','technical glitches','bonus exploits'];let wi=0;const rot=$('#rot');
+setInterval(()=>{rot.classList.add('o');setTimeout(()=>{wi=(wi+1)%W.length;rot.textContent=W[wi];rot.classList.remove('o')},350)},2600);
+// emblem behind sword and shield: tilt, glow, click ripple + redraw
+(function(){const box=$('.duel'),em=$('.emb');if(!box||!em)return;
+ box.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  em.style.transform=`perspective(900px) translate(${-x*26}px,${-y*26}px) rotateY(${x*16}deg) rotateX(${-y*16}deg)`;em.classList.add('hot')});
+ box.addEventListener('pointerleave',()=>{em.style.transform='';em.classList.remove('hot')});
+ box.addEventListener('pointerdown',e=>{const r=em.getBoundingClientRect(),rp=document.createElement('i');rp.className='rp';
+  rp.style.left=(e.clientX-r.left)+'px';rp.style.top=(e.clientY-r.top)+'px';em.appendChild(rp);rp.onanimationend=()=>rp.remove();
+  em.classList.add('pulse');setTimeout(()=>em.classList.remove('pulse'),600);
+  $$('.ln',em).forEach(l=>{l.style.animation='none';void l.getBoundingClientRect();l.style.animation=''})});
+})();
+// right rail: shows the current section + its subsections, follows scroll (added)
+(function(){
+ const rail=$('#rail');if(!rail)return;
+ const rb=$('.rb',rail),rk=$('.rk',rail),mq=matchMedia('(min-width:1280px)'),mainEl=$('#main');
+ const first={},subs={};
+ SL.forEach((s,i)=>{const c=+s.dataset.ch;if(!(c in first))first[c]=i});
+ SL.forEach((s,i)=>{const c=+s.dataset.ch,h=s.querySelector('.sh h2');if(c>0&&h)(subs[c]=subs[c]||[]).push([h.textContent,i])});
+ const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+ const starts=SL.map(s=>{const p=s.previousElementSibling;return p&&p.classList.contains('chap')?p:s});
+ rk.innerHTML=NAV.map((n,i)=>`<button type="button" data-ch="${i+1}" data-t="${esc(n)}" aria-label="${esc(CH[i])}"></button>`).join('');
+ let cur=-1,act=-1,tm=0,dir=1,raf=0;
+ const mark=()=>$$('.rs',rb).forEach(b=>b.classList.toggle('on',+b.dataset.i===act));
+ function fill(ch){
+  const t=(txt,go)=>`<button class="ri rt" type="button" style="--i:0" data-go="${go}">${esc(txt)}</button>`;
+  rb.innerHTML=ch===0
+   ?t('Contents',first[1])+CH.map((n,k)=>`<button class="ri rs" type="button" style="--i:${k+1}" data-go="${first[k+1]}">${esc(n)}</button>`).join('')
+   :t(CH[ch-1],first[ch])+subs[ch].map(([n,i],k)=>`<button class="ri rs" type="button" style="--i:${k+1}" data-go="${i}" data-i="${i}">${esc(n)}</button>`).join('');
+  $$('button',rk).forEach(b=>b.classList.toggle('on',+b.dataset.ch===ch));mark()}
+ function setCh(ch){
+  if(ch===cur)return;
+  dir=ch>=cur?1:-1;const init=cur===-1;cur=ch;
+  clearTimeout(tm);rb.style.setProperty('--dy',(dir>0?18:-18)+'px');
+  if(init){fill(ch);return}
+  rb.classList.add('out');
+  tm=setTimeout(()=>{fill(ch);rb.classList.remove('out')},230)}
+ function spy(){raf=0;if(!mq.matches)return;
+  const line=innerHeight*.5;let a=-1;
+  for(let i=0;i<starts.length;i++){if(starts[i].getBoundingClientRect().top<=line)a=i;else break}
+  if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)a=SL.length-1;
+  const ch=a<0?0:+SL[a].dataset.ch;
+  setCh(ch);if(a!==act){act=a;mark()}
+  let p=0;
+  if(ch>0){const s0=starts[first[ch]].getBoundingClientRect().top,nx=first[ch+1],e0=nx!==undefined?starts[nx].getBoundingClientRect().top:mainEl.getBoundingClientRect().bottom;
+   p=Math.min(1,Math.max(0,(line-s0)/Math.max(1,e0-s0)))}
+  rail.style.setProperty('--p',p.toFixed(3))}
+ const req=()=>{if(!raf)raf=requestAnimationFrame(spy)};
+ addEventListener('scroll',req,{passive:true});addEventListener('resize',req,{passive:true});
+ (mq.addEventListener?mq.addEventListener('change',req):mq.addListener(req));
+ rail.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  const g=b.dataset.go!==undefined?b.dataset.go:first[b.dataset.ch];if(g!==undefined)goTo(+g)});
+ spy();
+})();
+setNav(1);
+</script>
+</body>
+</html>
